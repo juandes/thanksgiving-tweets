@@ -23,12 +23,12 @@ object GetTweets {
 
     val sparkConf = new SparkConf()
                      .setAppName("Get tweets")
-                     .setMaster("spark://Juande.local:7077")
+                     .setMaster("spark://address:7077")
                      .set("spark.executor.memory", "1g")
     val ssc = new StreamingContext(sparkConf, Seconds(5))
     val stream = TwitterUtils.createStream(ssc, None, filters)
     
-    // Get the tweet, and if it is a retweet
+    // Get the tweet
     val tweets = stream.map(status => status.getText.replace("\n", ""))
     tweets.saveAsTextFiles("tweetsdata/tweetsStorage")
                  
