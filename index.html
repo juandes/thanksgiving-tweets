@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>A look at some Tweets from Thanksgiving 2015 by juandes</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>A look at some Tweets from Thanksgiving 2015</h1>
+        <p>A look at some Tweets obtained during Thanksgiving 2015. Analysis done using Apache Zeppelin and the Spark interpreter</p>
+
+        <p class="view"><a href="https://github.com/juandes/thanksgiving-tweets">View the Project on GitHub <small>juandes/thanksgiving-tweets</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/juandes/thanksgiving-tweets/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/juandes/thanksgiving-tweets/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/juandes/thanksgiving-tweets">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="a-look-at-some-tweets-from-thanksgiving-2015" class="anchor" href="#a-look-at-some-tweets-from-thanksgiving-2015" aria-hidden="true"><span class="octicon octicon-link"></span></a>A look at some Tweets from Thanksgiving 2015</h1>
+
+<h2>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
+
+<hr>
+
+<p>I will admit I am a huge fan of Twitter, and of the data it produces because it can holds many interesting facts, and opinions of almost any subject from people from all around the world. During Thanksgiving 2015 (November 26), while everyone was eating turkey, I fired up Spark to capture tweets containing the keyword ‘thanksgiving’.</p>
+
+<p>The reason I did this work was because I was interested in exploring the tweets generated during that period of time, in particular topics such as the most common retweet, and hashtag. Moreover, I wanted to try Apache Zeppelin, a web-based notebook (similar to iPython or Jupyter) for interactive data analytics.</p>
+
+<h2>
+<a id="the-data" class="anchor" href="#the-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>The data</h2>
+
+<hr>
+
+<p>The dataset used is made of 177955 tweets obtained on November 26, 2015.</p>
+
+<h2>
+<a id="platforms-used" class="anchor" href="#platforms-used" aria-hidden="true"><span class="octicon octicon-link"></span></a>Platforms used</h2>
+
+<ul>
+<li>Apache Zeppelin and the Spark interpreter</li>
+<li>Spark Streaming</li>
+<li>Pig</li>
+</ul>
+
+<h2>
+<a id="report" class="anchor" href="#report" aria-hidden="true"><span class="octicon octicon-link"></span></a>Report</h2>
+
+<h3>
+<a id="obtaining-the-data" class="anchor" href="#obtaining-the-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Obtaining the data</h3>
+
+<p>The data used for this work was obtained using Spark Streaming, and its Twitter library. The script written captured only the text component of the tweet, in other word, just the tweet itself. After an hour or so of capturing tweets, I ended up with a directory made of many subdirectories that had the tweets. Because of this, a Pig script was written to transfer the content of all these files into a single one. Both of these scripts are on the GitHub repository.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/juandes">juandes</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
