@@ -20,10 +20,10 @@
 
     <section class="main-content">
       <h1>
-<a id="a-look-at-some-tweets-from-thanksgiving-2015" class="anchor" href="#a-look-at-some-tweets-from-thanksgiving-2015" aria-hidden="true"><span class="octicon octicon-link"></span></a>A look at some Tweets from Thanksgiving 2015</h1>
+<a id="a-look-at-some-tweets-from-thanksgiving-2015" class="anchor" href="#a-look-at-some-tweets-from-thanksgiving-2015" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>A look at some Tweets from Thanksgiving 2015</h1>
 
 <h2>
-<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Overview</h2>
 
 <hr>
 
@@ -32,14 +32,14 @@
 <p>The reason I did this work was because I was interested in exploring the tweets generated during that period of time, in particular topics such as the most common retweet, and hashtag. Moreover, I wanted to try Apache Zeppelin, a web-based notebook (similar to iPython or Jupyter) for interactive data analytics.</p>
 
 <h2>
-<a id="the-data" class="anchor" href="#the-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>The data</h2>
+<a id="the-data" class="anchor" href="#the-data" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The data</h2>
 
 <hr>
 
 <p>The dataset used is made of 177955 tweets obtained on November 26, 2015.</p>
 
 <h2>
-<a id="platforms-used" class="anchor" href="#platforms-used" aria-hidden="true"><span class="octicon octicon-link"></span></a>Platforms used</h2>
+<a id="platforms-used" class="anchor" href="#platforms-used" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Platforms used</h2>
 
 <ul>
 <li>Apache Zeppelin and the Spark interpreter</li>
@@ -48,21 +48,54 @@
 </ul>
 
 <h2>
-<a id="report" class="anchor" href="#report" aria-hidden="true"><span class="octicon octicon-link"></span></a>Report</h2>
+<a id="report" class="anchor" href="#report" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Report</h2>
 
 <h3>
-<a id="obtaining-the-data" class="anchor" href="#obtaining-the-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Obtaining the data</h3>
+<a id="obtaining-the-data" class="anchor" href="#obtaining-the-data" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Obtaining the data</h3>
 
 <p>The data used for this work was obtained using Spark Streaming, and its Twitter library. The script written captured only the text component of the tweet, in other word, just the tweet itself. After an hour or so of capturing tweets, I ended up with a directory made of many subdirectories that had the tweets. Because of this, a Pig script was written to transfer the content of all these files into a single one. Both of these scripts are on the GitHub repository.</p>
 
 <h3>
-<a id="the-result" class="anchor" href="#the-result" aria-hidden="true"><span class="octicon octicon-link"></span></a>The result</h3>
+<a id="the-result" class="anchor" href="#the-result" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The result</h3>
 
 <p>Once the data was in the wanted format, it was loaded into Zeppelin. Keep in mind that I was using the Spark interpreter, meaning that the syntax you will see in the following images are Spark code, or Pyspark to be more specific.</p>
 
-<p>The following images shows how the data was loaded, and the number of tweets available in the dataset.</p>
+<p>The following images shows how the data was loaded, and the number of tweets available in the dataset, 177955.</p>
 
 <p><img src="http://juandes.github.io/thanksgiving-tweets/images/loaddata_numbertweets.png" alt="load"></p>
+
+<p>After counting the number of tweets, I called the flatMap to get every single word of the corpus, followed by a reduceByKey action to count them - the total number of words is 2145540. Then a new dataframe, made of the words and their frequency, was created. The next image shows the code, followed by two plots of the top 10 words that include the SQL query written to obtain the result. The first image has a comment that says "get the 20 most common words", please ignore it (I forgot to remove the comment before taking the screenshots).</p>
+
+<p><img src="http://juandes.github.io/thanksgiving-tweets/images/word_count.png" alt="load"></p>
+
+<p><img src="http://juandes.github.io/thanksgiving-tweets/images/count_1.png" alt="load"></p>
+
+<p><img src="http://juandes.github.io/thanksgiving-tweets/images/count_2.png" alt="load"></p>
+
+<p>These are the top 10 words and their frequency</p>
+
+<ul>
+<li>
+<strong>thanksgiving</strong>: 114,556</li>
+<li>
+<strong>happy</strong>: 103,026</li>
+<li>
+<strong>rt</strong>: 85,202</li>
+<li>
+<strong>to</strong>: 59,143</li>
+<li>
+<strong>the</strong>: 40,918</li>
+<li>
+<strong>and</strong>: 36,614</li>
+<li>
+<strong>you</strong>: 31,783</li>
+<li>
+<strong>a</strong>: 31,105</li>
+<li>
+<strong>for</strong>: 28,792</li>
+<li>
+<strong>all</strong>: ... number missing from</li>
+</ul>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/juandes/thanksgiving-tweets">A look at some Tweets from Thanksgiving 2015</a> is maintained by <a href="https://github.com/juandes">juandes</a>.</span>
