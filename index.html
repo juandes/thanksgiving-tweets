@@ -1,34 +1,25 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en-us">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta charset="UTF-8">
     <title>A look at some Tweets from Thanksgiving 2015 by juandes</title>
-
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-light.css">
-    <meta name="viewport" content="width=device-width">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>A look at some Tweets from Thanksgiving 2015</h1>
-        <p>A look at some Tweets obtained during Thanksgiving 2015. Analysis done using Apache Zeppelin and the Spark interpreter</p>
+    <section class="page-header">
+      <h1 class="project-name">A look at some Tweets from Thanksgiving 2015</h1>
+      <h2 class="project-tagline">A look at some Tweets obtained during Thanksgiving 2015. Analysis done using Apache Zeppelin and the Spark interpreter</h2>
+      <a href="https://github.com/juandes/thanksgiving-tweets" class="btn">View on GitHub</a>
+      <a href="https://github.com/juandes/thanksgiving-tweets/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/juandes/thanksgiving-tweets/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-        <p class="view"><a href="https://github.com/juandes/thanksgiving-tweets">View the Project on GitHub <small>juandes/thanksgiving-tweets</small></a></p>
-
-
-        <ul>
-          <li><a href="https://github.com/juandes/thanksgiving-tweets/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/juandes/thanksgiving-tweets/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/juandes/thanksgiving-tweets">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h1>
+    <section class="main-content">
+      <h1>
 <a id="a-look-at-some-tweets-from-thanksgiving-2015" class="anchor" href="#a-look-at-some-tweets-from-thanksgiving-2015" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>A look at some Tweets from Thanksgiving 2015</h1>
 
 <h2>
@@ -114,7 +105,7 @@
 
 <p>The next image shows the code used to get the hashtags. Most of the actions performed at this step are similar to those used to find the most common words, the exception in this case is that I used a regex to remove the special characters that follow a hashtag. For example, someone on Twitter might write the hashtag <code>#thanksgiving!</code>, but Twitter does not allow numbers or special characters on the hashtags, so the hashtag is just <code>#thanksgiving</code> - the <code>!</code> is just a normal character of the tweet.</p>
 
-<p><img src="http://juandes.github.io/thanksgiving-tweets/images/hashtags_code.png" alt="load"></p>
+<p><img src="http://juandes.github.io/thanksgiving-tweets/images/hashtags_code.png" alt="hashtags code"></p>
 
 <p>These are the top 10 hashtags:</p>
 
@@ -141,20 +132,22 @@
 <strong>#turkey</strong>: 359</li>
 </ul>
 
-<p><img src="http://juandes.github.io/thanksgiving-tweets/images/hashtags.png" alt="load"></p>
+<p><img src="http://juandes.github.io/thanksgiving-tweets/images/hashtags.png" alt="hashtags"></p>
 
 <p>There is one hashtag from this list that feels out of place. Do you agree? That is the hashtag <code>#revealed</code>. This hashtag belongs to a tweet from an account called <code>@Drudge_Report</code> that starts like this "#REVEALED: What Your #Thanksgiving Feast Does to Your Organs...". Mystery solved.</p>
 
 <p>Small note: in this image, the icons of the different plots didn't loaded correctly.</p>
 
 <p>So far we have discovered the top words, and the top hashtags, and now it is time to find the most common mentions.</p>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/juandes">juandes</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/juandes/thanksgiving-tweets">A look at some Tweets from Thanksgiving 2015</a> is maintained by <a href="https://github.com/juandes">juandes</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
+
+    </section>
+
+  
   </body>
 </html>
