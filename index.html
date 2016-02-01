@@ -103,34 +103,40 @@
 
 <p>Now that we know what were the most common words, lets do the same but with the hashtags.</p>
 
+<p>The next image shows the code used to get the hashtags. Most of the actions performed at this step are similar to those used to find the most common words, the exception in this case is that I used a regex to remove the special characters that follow a hashtag. For example, someone on Twitter might write the hashtag <code>#thanksgiving!</code>, but Twitter does not allow numbers or special characters on the hashtags, so the hashtag is just <code>#thanksgiving</code> - the <code>!</code> is just a normal character of the tweet.</p>
+
+<p><img src="http://juandes.github.io/thanksgiving-tweets/images/retweets_code.png" alt="load"></p>
+
 <p>These are the top 10 hashtags:</p>
 
 <ul>
 <li>
-<strong>#thanksgiving</strong>:</li>
+<strong>#thanksgiving</strong>: 13,716</li>
 <li>
-<strong>#happythanksgiving</strong>:</li>
+<strong>#happythanksgiving</strong>: 1,871</li>
 <li>
-<strong>#thankful</strong>:</li>
+<strong>#thankful</strong>: 1,350</li>
 <li>
-<strong>#thanksgiving!</strong>:</li>
+<strong>#american</strong>: 677</li>
 <li>
-<strong>#american</strong>:</li>
+<strong>#revealed</strong>: 672</li>
 <li>
-<strong>#revealed</strong>:</li>
+<strong>#family</strong>: 657</li>
 <li>
-<strong>#family</strong>:</li>
+<strong>#imthankfulfor</strong>: 504</li>
 <li>
-<strong>#imthankfulfor</strong>:</li>
+<strong>#macysparade</strong>: 504 (call me skeptic but I do not like that there are two hashtags with the same count)</li>
 <li>
-<strong>#thanksgiving.</strong>:</li>
+<strong>#blessed</strong>: 380</li>
 <li>
-<strong>#thanksgiving,</strong>:</li>
-<li>
-<strong>#thanksgiving</strong>:</li>
+<strong>#turkey</strong>: 359</li>
 </ul>
 
-<p><img src="http://juandes.github.io/thanksgiving-tweets/images/count_2.png" alt="load"></p>
+<p><img src="http://juandes.github.io/thanksgiving-tweets/images/hashtags.png" alt="load"></p>
+
+<p>There is one hashtag from this list that feels out of place. Do you agree? That is the hashtag <code>#revealed</code>. This hashtag belongs to a tweet from an account called <code>@Drudge_Report</code> that starts like this "#REVEALED: What Your #Thanksgiving Feast Does to Your Organs...". Mystery solved.</p>
+
+<p>So far we have discovered the top words, and the top hashtags, and now it is time to find the most common mentions.</p>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/juandes/thanksgiving-tweets">A look at some Tweets from Thanksgiving 2015</a> is maintained by <a href="https://github.com/juandes">juandes</a>.</span>
