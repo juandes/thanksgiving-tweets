@@ -27,7 +27,7 @@
 
 <hr>
 
-<p>I will admit I am a huge fan of Twitter, and of the data it produces because it holds many interesting facts, and opinions of almost any subject from people from all around the world. During Thanksgiving 2015 (November 26), while everyone was eating turkey, I fired up Spark to capture tweets containing the keyword ‘thanksgiving’.</p>
+<p>Twitter is great. Besides its normal purpose, it produces an enormous amount of data that holds many interesting facts, and opinions of almost any subject from people from all around the world. During Thanksgiving 2015 (November 26), while everyone was eating turkey, I fired up Spark to capture tweets containing the keyword ‘thanksgiving’.</p>
 
 <p>The reason I did this work was because I was interested in exploring the tweets generated during that period of time, in particular topics such as the most common retweet, and hashtag. Moreover, I wanted to try Apache Zeppelin, a web-based notebook (similar to iPython or Jupyter) for interactive data analytics.</p>
 
@@ -140,6 +140,41 @@ Small note: in this image, the icons of the different plots didn't loaded correc
 <p><img src="http://juandes.github.io/thanksgiving-tweets/images/revealed.png" alt="revealed"></p>
 
 <p>So far we have discovered the top words, and the top hashtags, and now it is time to find the most common mentions.</p>
+
+<p><img src="http://juandes.github.io/thanksgiving-tweets/images/mentions.png" alt="mentions"></p>
+
+<ul>
+<li>
+<strong><a href="https://github.com/onedirection" class="user-mention">@onedirection</a></strong>: 8,919</li>
+<li>
+<strong>@obj_3</strong>: 831</li>
+<li>
+<strong>@jensenackles</strong>: 783</li>
+<li>
+<strong>@truthshallbe</strong>: 701</li>
+<li>
+<strong>@shawnmendes</strong>: 684</li>
+<li>
+<strong>@harry_styles</strong>: 666</li>
+<li>
+<strong>@drudge_report_</strong>: 651</li>
+<li>
+<strong>@sincerelytumblr</strong>: 630</li>
+<li>
+<strong>@worldstarfunny</strong>: 578</li>
+<li>
+<strong><a href="https://github.com/epicurious" class="user-mention">@epicurious</a></strong>: 577</li>
+</ul>
+
+<p>The last section of this report is related to the retweets. As I did before with the hashtags and mentions, I looked for the five most common hashtags, and the number of time it was repeated.</p>
+
+<p>The process behind this was a bit different than we I did before, mostly because I had to check each tweet to verify if it is in fact, a retweet. Thus I called the<code>map</code> function on my original dataframe, and checked if the first characters of the tweet are <code>RT @</code>. The result of this <code>map</code> action is a new dataframe made of a tuple of 3 elements: the tweet, the retweet status, and the length of the tweet (you will see why soon).</p>
+
+<p><img src="http://juandes.github.io/thanksgiving-tweets/images/retweet_1.png" alt="retweet1"></p>
+
+<p>A second dataframe was created with just those tweets that are retweets. Followed by this, they were counted using <code>reduceByKey</code>.</p>
+
+<p><img src="http://juandes.github.io/thanksgiving-tweets/images/retweet_2.png" alt="retweet2"></p>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/juandes/thanksgiving-tweets">A look at some Tweets from Thanksgiving 2015</a> is maintained by <a href="https://github.com/juandes">juandes</a>.</span>
