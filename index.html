@@ -27,9 +27,11 @@
 
 <hr>
 
-<p>Twitter is great. Besides its normal purpose, it produces an enormous amount of data that holds many interesting facts, and opinions of almost any subject from people from all around the world. During Thanksgiving 2015 (November 26), while everyone was eating turkey, I fired up Spark to capture tweets containing the keyword ‘thanksgiving’.</p>
+<p>Twitter is great. Behind all those tweets, there is an enormous amount of data that holds many interesting facts, and opinions of almost any subject from people all around the world. </p>
 
-<p>The reason I did this work was because I was interested in exploring the tweets generated during that period of time, in particular topics such as the most common retweet, and hashtag. Moreover, I wanted to try Apache Zeppelin, a web-based notebook (similar to iPython or Jupyter) for interactive data analytics.</p>
+<p>During Thanksgiving 2015 (November 26), while everyone was eating turkey, I fired up Spark to capture tweets containing the keyword ‘thanksgiving’.</p>
+
+<p>The reason I did this work was because I was interested in exploring the tweets generated during that period of time, principally the tops hashtags, mentions and retweets. Moreover, I wanted to try Apache Zeppelin, a web-based notebook (similar to iPython or Jupyter) for interactive data analytics.</p>
 
 <p>Note: Because this report has some images, I changed the layout of this page for better visibility of them.</p>
 
@@ -43,6 +45,8 @@
 <h2>
 <a id="platforms-used" class="anchor" href="#platforms-used" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Platforms used</h2>
 
+<hr>
+
 <ul>
 <li>Apache Zeppelin and the Spark interpreter</li>
 <li>Spark Streaming</li>
@@ -52,21 +56,25 @@
 <h2>
 <a id="report" class="anchor" href="#report" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Report</h2>
 
+<hr>
+
 <h3>
 <a id="obtaining-the-data" class="anchor" href="#obtaining-the-data" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Obtaining the data</h3>
 
-<p>The data used for this work was obtained using Spark Streaming, and its Twitter library. The script written captured only the text component of the tweet, in other word, just the tweet itself. After an hour or so of capturing tweets, I ended up with a directory made of many subdirectories that had the tweets. Because of this, a Pig script was written to transfer the content of all these files into a single one. Both of these scripts are on the GitHub repository.</p>
+<p>The data used for this work was obtained using Spark Streaming, and its Twitter library. The script written captured only the text component of the tweet, in other word, just the tweet itself. After an hour or so of capturing tweets, I ended up with a directory made of many subdirectories that had the tweets. Because of this, a Pig script was written to transfer the content of all these files into a single one. Both of these scripts are on the GitHub repository of this project.</p>
+
+<p>This is an example of a single tweet: Macy's Thanksgiving day parade never gets old #HappyThanksgiving</p>
 
 <h3>
 <a id="the-result" class="anchor" href="#the-result" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The result</h3>
 
-<p>Once the data was in the wanted format, it was loaded into Zeppelin. Keep in mind that I was using the Spark interpreter, meaning that the syntax you will see in the following images are Spark code, or Pyspark to be more specific.</p>
+<p>Once the data was in the wanted format, it was loaded into Zeppelin. Keep in mind that I used the Spark interpreter, meaning that the syntax you will see in the following images are Spark code, or Pyspark to be more specific.</p>
 
-<p>The following images shows how the data was loaded, and the number of tweets available in the dataset, 177955.</p>
+<p>The following screenshots (taken from the Zeppelin notebook) shows how the data was loaded, and the number of tweets available in the dataset, 177955.</p>
 
 <p><img src="http://juandes.github.io/thanksgiving-tweets/images/loaddata_numbertweets.png" alt="load"></p>
 
-<p>After counting the number of tweets, I called the flatMap to get every single word of the corpus, followed by a reduceByKey action to count them - the total number of words is 2145540. Then a new dataframe, made of the words and their frequency, was created. The next image shows the code, followed by two plots of the top 10 words that include the SQL query written to obtain the result. The first image has a comment that says "get the 20 most common words", please ignore it (I forgot to remove the comment before taking the screenshots).</p>
+<p>After counting the number of tweets, I executed the <code>flatMap</code> action on my data structure (<a href="http://spark.apache.org/docs/latest/programming-guide.html#resilient-distributed-datasets-rdds">RDD</a> to be precise) to get every single word of the corpus as an element of the RDD, followed by a <code>reduceByKey</code> action to count them - the total number of words is 2145540. Then a new dataframe, made of the words and their frequency, was created. The next images display the code written to achieve this, and a bar chart and table that presents the top 10 words. This bar chart and table are merely the output of an SQL query (also shown in the images).</p>
 
 <p><img src="http://juandes.github.io/thanksgiving-tweets/images/word_count.png" alt="load"></p>
 
@@ -103,9 +111,9 @@
 
 <p>Something really cool about Zeppelin is that you can change the view of the output of an SQL query by just clicking one of the small icons below the query editor. Some of these views include a regular table (as seen on the previous image), a bar chart, a pie chart and others.</p>
 
-<p>Now that we know what were the most common words, lets do the same but with the hashtags.</p>
+<p>Now that we know what the most common words are, lets do the same but with the hashtags.</p>
 
-<p>The next image shows the code used to get the hashtags. Most of the actions performed at this step are similar to those used to find the most common words, the exception in this case is that I used a regex to remove the special characters that follow a hashtag. For example, someone on Twitter might write the hashtag <code>#thanksgiving!</code>, but Twitter does not allow numbers or special characters on the hashtags, so the hashtag is just <code>#thanksgiving</code> - the <code>!</code> is just a normal character of the tweet.</p>
+<p>The next image shows the code used to get the hashtags. Most of the actions performed at this step are similar to those used to find the most common words, the exception in this case is that I used a regex to remove the special characters that follow a hashtag. For example, someone on Twitter might write <code>#thanksgiving!</code> as one word, but Twitter does not allow numbers or special characters on the hashtags, so the hashtag is just <code>#thanksgiving</code> - the <code>!</code> is just a normal character of the tweet.</p>
 
 <p><img src="http://juandes.github.io/thanksgiving-tweets/images/hashtags_code.png" alt="hashtags code"></p>
 
@@ -167,7 +175,7 @@
 <strong><a href="https://github.com/epicurious" class="user-mention">@epicurious</a></strong>: 577</li>
 </ul>
 
-<p>The last section of this report is related to the retweets. As I did before with the hashtags and mentions, I looked for the five most common hashtags, and the number of time it was repeated.</p>
+<p>The last section of this report is related to the retweets. As I did before with the hashtags and mentions, I looked for the five most common retweets, and the number of time they were reposted.</p>
 
 <p>The process behind this was a bit different than we I did before, mostly because I had to check each tweet to verify if it is in fact, a retweet. Thus I called the<code>map</code> function on my original dataframe, and checked if the first characters of the tweet are <code>RT @</code>. The result of this <code>map</code> action is a new dataframe made of a tuple of 3 elements: the tweet, the retweet status, and the length of the tweet (you will see why soon).</p>
 
@@ -199,7 +207,7 @@
 <h2>
 <a id="conclusion" class="anchor" href="#conclusion" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Conclusion</h2>
 
-<p>Turkey, Macy's Parade, One Direction and good times. This is what was revealed by the tweets I showed in this report. Moreover, I had the chance of trying Zeppelin, which I found really intuitive and easy to use.</p>
+<p>Turkey, Macy's Parade, One Direction and good times. This is what was revealed by the tweets I showed in this report. Moreover, I had the chance of trying Zeppelin, which I found really intuitive and easy to use. The scripts, an export of the Zeppelin notebook, and the dataset is available at the repository of this project (link is at the footer of this page).</p>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/juandes/thanksgiving-tweets">A look at some Tweets from Thanksgiving 2015</a> is maintained by <a href="https://github.com/juandes">juandes</a>.</span>
