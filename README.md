@@ -17,4 +17,4 @@ The dataset used is made of 177955 tweets obtained on November 26, 2015.
 This repo holds an export of the Zeppelin notebook, the Scala code used to capture the tweets, a Pig script used for merging all the tweets into one file, and the dataset.
 
 ## Report
-Report coming soon...
+Report: [A look at some Tweets from Thanksgiving 2015](http://juandes.github.io/thanksgiving-tweets)
